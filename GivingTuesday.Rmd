@@ -1,0 +1,57 @@
+---
+title: "podcast pilot"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+output:
+  pdf_document: 
+    toc: yes
+    toc_depth: 2
+    fig_caption: true
+header-includes:
+  \renewcommand{\contentsname}{Items}
+   \usepackage{fvextra}
+   \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+---
+
+```{r setup, include=FALSE}
+rm(list=ls())
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE,
+	results = "hide"
+)
+library(dplyr)
+library(lmtest)
+library(sandwich)
+library(systemfit)
+library(car)
+library(broom)
+library(qualtRics)
+library(knitr)
+library(rmarkdown)
+library(ggplot2)
+library(grid)
+library(extrafont)
+library(readxl)
+library(readr)
+library(kableExtra)
+library(jsonlite)
+library(tidyr)
+library(lubridate)
+```
+
+\newpage
+
+```{r}
+# Load the data
+
+table(data_EmailOne$Variant)
+
+data_EmailOne <- read_xlsx("GT_individual.xlsx", sheet="PreGiving Tuesday")
+data_EmailTwo_support <- read_xlsx("GT_individual.xlsx", sheet="Giving Tuesday AM - support CRS")
+data_EmailTwo_lapsed <- read_xlsx("GT_individual.xlsx", sheet="Giving Tuesday AM - lapsed")
+
+
+
+```
+
